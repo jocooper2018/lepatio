@@ -11,8 +11,9 @@ public class Spectacle {
     private Genre genre;
     private Set<Artiste> artistes;
     private Set<Representation> representations;
+    private Set<Zone> zones;
     
-    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste) {
+    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste, Zone premiereZone) {
         this.nom = nom;
         this.duree = duree;
         this.nbreMaxSpect = nbreMaxSpect;
@@ -20,6 +21,8 @@ public class Spectacle {
         this.artistes = new HashSet<Artiste>();
         this.artistes.add(premierArtiste);
         this.representations = new HashSet<Representation>();
+        this.zones = new HashSet<Zone>();
+        this.zones.add(premiereZone);
     }
 
     public String getNom() {
