@@ -14,7 +14,7 @@ public class Spectacle {
     private Set<Zone> zones;
     private static Set<Tarif> tarifs = new HashSet<Tarif>();
     
-    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste, Zone premiereZone) {
+    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste, Zone premiereZone, long pleinTarifPremiereZone) {
         this.setNom(nom);
         this.setDuree(duree);
         this.setNbreMaxSpect(nbreMaxSpect);
@@ -23,7 +23,7 @@ public class Spectacle {
         this.ajouterArtiste(premierArtiste);
         this.representations = new HashSet<Representation>();
         this.zones = new HashSet<Zone>();
-        this.zones.add(premiereZone);
+        this.ajouterZone(premiereZone, pleinTarifPremiereZone);
     }
 
     public String getNom() {
@@ -88,8 +88,9 @@ public class Spectacle {
         return this.zones;
     }
 
-    public boolean ajouterZone(Zone zone) {
+    public boolean ajouterZone(Zone zone, long pleinTarifZone) {
         zone.ajouterSpectacle(this);
+        Spectacle.ajouterTarif(new Tarif(pleinTarifZone, this, zone));
         return this.getZones().add(zone);
     }
 
@@ -98,7 +99,25 @@ public class Spectacle {
             throw new Exception("Impossible d'enlever la dernière zone");
         }
         zone.enleverSpectacle(this);
+        Spectacle.enleverTarif(Spectacle.getTarif(this, zone));
         return this.getZones().remove(zone);
+    }
+
+    public static Tarif getTarif(Spectacle spectacle, Zone zone) {
+        for (Tarif tarif : Spectacle.tarifs) {
+            if (tarif.getSpectacle().equals(spectacle) && tarif.getZone().equals(zone)) {
+                return tarif;
+            }
+        }
+        return null;
+    }
+
+    public static boolean ajouterTarif(Tarif tarif) {
+        return Spectacle.tarifs.add(tarif);
+    }
+
+    public static boolean enleverTarif(Tarif tarif) {
+        return Spectacle.tarifs.remove(tarif);
     }
 
     @Override
