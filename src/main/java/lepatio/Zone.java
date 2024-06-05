@@ -7,6 +7,7 @@ public class Zone {
     
     private String nom;
     private Set<Spectacle> spectacles;
+    private static Set<Tarif> tarifs = new HashSet<Tarif>();
     
     public Zone(String nom, Spectacle premierSpectacle) {
         this.nom = nom;
