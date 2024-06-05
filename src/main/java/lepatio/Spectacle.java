@@ -12,14 +12,15 @@ public class Spectacle {
     private Set<Artiste> artistes;
     private Set<Representation> representations;
     private Set<Zone> zones;
+    private static Set<Tarif> tarifs = new HashSet<Tarif>();
     
     public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste, Zone premiereZone) {
-        this.nom = nom;
-        this.duree = duree;
-        this.nbreMaxSpect = nbreMaxSpect;
-        this.genre = genre;
+        this.setNom(nom);
+        this.setDuree(duree);
+        this.setNbreMaxSpect(nbreMaxSpect);
+        this.setGenre(genre);
         this.artistes = new HashSet<Artiste>();
-        this.artistes.add(premierArtiste);
+        this.ajouterArtiste(premierArtiste);
         this.representations = new HashSet<Representation>();
         this.zones = new HashSet<Zone>();
         this.zones.add(premiereZone);
@@ -81,6 +82,23 @@ public class Spectacle {
 
     protected boolean enleverRepresentation(Representation representation) {
         return this.getRepresentations().remove(representation);
+    }
+
+    public Set<Zone> getZones() {
+        return this.zones;
+    }
+
+    public boolean ajouterZone(Zone zone) {
+        zone.ajouterSpectacle(this);
+        return this.getZones().add(zone);
+    }
+
+    public boolean enleverZone(Zone zone) throws Exception {
+        if (this.getZones().size() <= 1) {
+            throw new Exception("Impossible d'enlever la dernière zone");
+        }
+        zone.enleverSpectacle(this);
+        return this.getZones().remove(zone);
     }
 
     @Override

@@ -7,7 +7,6 @@ public class Zone {
     
     private String nom;
     private Set<Spectacle> spectacles;
-    private static Set<Tarif> tarifs = new HashSet<Tarif>();
     
     public Zone(String nom, Spectacle premierSpectacle) {
         this.nom = nom;
@@ -23,7 +22,15 @@ public class Zone {
         this.nom = nom;
     }
 
-    public Set<Spectacle> getSpectacles() {
+    protected Set<Spectacle> getSpectacles() {
         return spectacles;
+    }
+
+    protected boolean ajouterSpectacle(Spectacle spectacle) {
+        return this.getSpectacles().add(spectacle);
+    }
+
+    protected boolean enleverSpectacle(Spectacle spectacle) {
+        return this.getSpectacles().remove(spectacle);
     }
 }
