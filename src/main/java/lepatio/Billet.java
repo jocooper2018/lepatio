@@ -5,11 +5,13 @@ public class Billet {
     private String numero;
     private Reservation reservation;
     private Fauteuil fauteuil;
+    private Tarification tarification;
     
-    public Billet(String numero, Reservation reservation, Fauteuil fauteuil) {
+    public Billet(String numero, Reservation reservation, Fauteuil fauteuil, Tarification tarification) {
         this.setNumero(numero);
         this.setReservation(reservation);
         this.setFauteuil(fauteuil);
+        this.setTarification(tarification);
     }
 
     protected String getNumero() {
@@ -37,5 +39,12 @@ public class Billet {
         this.fauteuil = fauteuil;
     }
 
-    
+    public Tarification getTarification() {
+        return tarification;
+    }
+
+    public void setTarification(Tarification tarification) {
+        tarification.ajouterBillet(this);
+        this.tarification = tarification;
+    }
 }
