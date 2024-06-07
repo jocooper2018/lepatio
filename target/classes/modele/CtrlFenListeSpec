@@ -1,0 +1,30 @@
+package modele;
+
+import com.gluonhq.charm.glisten.control.TextField;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+
+public class CtrlFenListeSpec {
+
+    @FXML
+    private ListView<?> ListeFiltre;
+
+    @FXML
+    private ListView<?> ListeSpectacle;
+
+    @FXML
+    private Button bnCreerGenre;
+
+    @FXML
+    private Button bnFermer;
+
+    @FXML
+    private TextField txtFiltre;
+
+    @FXML
+    void Fermer(ActionEvent event) {
+        System.exit(0);
+    }
+
+}
