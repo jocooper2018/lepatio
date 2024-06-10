@@ -1,11 +1,18 @@
 package lepatio;
 
+/**
+ * La classe {@code Genre} représente un genre de spectacle.
+ * @author LE BOUT Matthieu
+ */
 public class Genre {
 
+    /**
+     * Le libellé correspond au nom du genre.
+     */
     private String libelle;
 
     public Genre(String libelle) {
-        this.libelle = libelle;
+        this.setLibelle(libelle);
     }
 
     public String getLibelle() {
