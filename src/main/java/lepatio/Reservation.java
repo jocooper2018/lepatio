@@ -11,15 +11,17 @@ public class Reservation {
     private Calendar dateEnvoiConf;
     private Representation representation;
     private Set<Billet> billets;
+    private Client client;
 
     public Reservation(String numero, Calendar date, Calendar dateEnvoiConf, Representation representation,
-            Billet premierBillet) {
+            Billet premierBillet, Client client) {
         this.setNumero(numero);
         this.setDate(date);
         this.setDateEnvoiConf(dateEnvoiConf);
         this.setRepresentation(representation);
         this.billets = new HashSet<Billet>();
         this.ajouterBillet(premierBillet);
+        this.setClient(client);
     }
 
     public String getNumero() {
@@ -64,5 +66,13 @@ public class Reservation {
 
     public boolean enleverBillet(Billet billet) {
         return this.getBillets().remove(billet);
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
