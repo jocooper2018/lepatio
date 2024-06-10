@@ -3,35 +3,31 @@ package modele;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import main.Main;
 
-public class CtrlFenListeSpec {
+public class CtrlFenCreerGenre {
 
     @FXML
-    private ListView<?> ListeFiltre;
-
-    @FXML
-    private ListView<?> ListeSpectacle;
+    private Button bnAnnuler;
 
     @FXML
     private Button bnCreerGenre;
 
     @FXML
-    private Button bnFermer;
+    private Label lbNom;
 
     @FXML
-    private TextField txtFiltre;
-
-    @FXML
-    void Fermer(ActionEvent event) {
-        Main.fermerAppli();
-    }
+    private TextField txtNom;
 
     @FXML
     void CreerGenre(ActionEvent event) {
         Main.ouvrirCreerGenre();
     }
 
+    @FXML
+    void Fermer(ActionEvent event) {
+        Main.fermerPopup();
+    }
 }
