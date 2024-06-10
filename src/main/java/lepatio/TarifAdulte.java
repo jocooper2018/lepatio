@@ -1,10 +1,10 @@
 package lepatio;
 
-public class Adulte extends Tarification {
+public class TarifAdulte extends Tarification {
     
     public static final double reductionStatic = 0.0;
 
-    public Adulte() {
+    public TarifAdulte() {
         super();
     }
 }

@@ -1,10 +1,10 @@
 package lepatio;
 
-public class Senior extends Tarification {
+public class TarifSenior extends Tarification {
     
     public static final double reductionStatic = 0.25;
 
-    public Senior() {
+    public TarifSenior() {
         super();
     }
 }
