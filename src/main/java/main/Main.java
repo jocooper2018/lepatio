@@ -12,7 +12,6 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Donnees.chargementDonnees();
 		this.fListe = new FenListeSpec();
 		this.fListe.show();
 	}
@@ -24,4 +23,5 @@ public class Main extends Application {
 	public static void main(String[] args){
 		Application.launch(args);
 	}
+	
 }

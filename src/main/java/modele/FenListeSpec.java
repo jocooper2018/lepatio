@@ -17,7 +17,7 @@ public class FenListeSpec extends Stage {
 
 	private Pane creerSceneGraph() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FenAffichageListeGenre.fxml"));
+        loader.setLocation(getClass().getResource("/lepatio/FenAffichageListeGenre.fxml"));
         Pane root = loader.load();
         loader.getController();
         return root;
