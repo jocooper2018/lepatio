@@ -19,6 +19,7 @@ public class Spectacle {
     private Set<Artiste> artistes;
     private Set<Representation> representations;
     private Set<Zone> zones;
+
     private static Set<Tarif> tarifs = new HashSet<Tarif>();
 
     /**
@@ -201,25 +202,63 @@ public class Spectacle {
         return this.getRepresentations().remove(representation);
     }
 
+    /**
+     * Retourne l'ensemble des zones.
+     * 
+     * @return L'ensemble des zones.
+     */
     public Set<Zone> getZones() {
         return this.zones;
     }
 
+    /**
+     * Ajoute une zone au spectacle et le plein tarif associé au spectacle et à la
+     * zone.
+     * 
+     * @param zone           La zone à ajouter.
+     * @param pleinTarifZone Le plein tarif en centimes associé au spectacle et à la
+     *                       zone.
+     * @return {@code true} si l'ensemble des zones ne contient pas déjà la zone à
+     *         ajouter et si l'ensemble des spectacle de la zone ne contient pas
+     *         déjà ce spectacle et si l'ensemble des tarifs ne contient pas déjà le
+     *         tarif.
+     */
     public boolean ajouterZone(Zone zone, long pleinTarifZone) {
-        zone.ajouterSpectacle(this);
-        Spectacle.ajouterTarif(new Tarif(pleinTarifZone, this, zone));
-        return this.getZones().add(zone);
+        return zone.ajouterSpectacle(this)
+                && Spectacle.ajouterTarif(new Tarif(pleinTarifZone, this, zone))
+                && this.getZones().add(zone);
     }
 
-    public boolean enleverZone(Zone zone) throws Exception {
+    /**
+     * Enlève une zone du spectacle, ce spectacle de l'ensemble des spectacle de la
+     * zone à enlever, et le tarif associé.
+     * 
+     * @param zone La zone à enlever.
+     * @return {@code true} si l'ensemble des zones contient la zone à enlever et si
+     *         l'ensemble des spectacle de la zone contient ce spectacle et si
+     *         l'ensemble des tarifs contient le tarif.
+     * @throws IllegalStateException Si l'ensemble des zones ne contient qu'une
+     *                               seule zone ou moins.
+     */
+    public boolean enleverZone(Zone zone) throws IllegalStateException {
         if (this.getZones().size() <= 1) {
-            throw new Exception("Impossible d'enlever la dernière zone");
+            throw new IllegalStateException(
+                    "Impossible de supprimer la zone : le spectacle doit contenir au moins une zone.");
         }
-        zone.enleverSpectacle(this);
-        Spectacle.enleverTarif(Spectacle.getTarif(this, zone));
-        return this.getZones().remove(zone);
+        return zone.enleverSpectacle(this)
+                && Spectacle.enleverTarif(Spectacle.getTarif(this, zone))
+                && this.getZones().remove(zone);
     }
 
+    /**
+     * Retourne le tarif associé à un spectacle et une zone. Si aucuns tarif n'est
+     * trouvé, retourne {@code null}.
+     * 
+     * @param spectacle Spectacle dont on cherche le tarif.
+     * @param zone      Zone dont on cherche le tarif.
+     * @return Le tarif associé au spectacle et à la zone si il existe. Si aucuns
+     *         tarif n'est trouvé, {@code null}.
+     */
     public static Tarif getTarif(Spectacle spectacle, Zone zone) {
         for (Tarif tarif : Spectacle.tarifs) {
             if (tarif.getSpectacle().equals(spectacle) && tarif.getZone().equals(zone)) {
@@ -229,11 +268,21 @@ public class Spectacle {
         return null;
     }
 
-    public static boolean ajouterTarif(Tarif tarif) {
+    /**
+     * Ajoute un tarif.
+     * @param tarif Le tarif à ajouter.
+     * @return {@code true} si le tarif n'existe pas déjà.
+     */
+    protected static boolean ajouterTarif(Tarif tarif) {
         return Spectacle.tarifs.add(tarif);
     }
 
-    public static boolean enleverTarif(Tarif tarif) {
+    /**
+     * Supprime un tarif.
+     * @param tarif Le tarif à supprimer.
+     * @return {@code true} si le tarif existe.
+     */
+    protected static boolean enleverTarif(Tarif tarif) {
         return Spectacle.tarifs.remove(tarif);
     }
 
