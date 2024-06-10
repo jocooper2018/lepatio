@@ -78,6 +78,7 @@ public class Client {
     }
 
     public boolean ajouterReservation(Reservation reservation) {
+        reservation.setClient(this);
         return this.getReservations().add(reservation);
     }
 
