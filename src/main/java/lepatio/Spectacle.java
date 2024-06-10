@@ -5,7 +5,12 @@ import java.util.Set;
 
 /**
  * La classe {@code Spectacle} représente un spectacle.
- * Un spectacle peut faire l'objet de plusieurs représentations.
+ * Un spectacle a un nom, une durée, un nombre maximum de spectateur, et un
+ * genre.
+ * Un spectacle peut faire l'objet de plusieurs représentations et doit en avoir
+ * au moins une.
+ * Un spectacle est représenté par au moins un artiste.
+ * Un spectacle à au mois une zone.
  * 
  * @author LE BOUT Matthieu
  * @see Genre
@@ -200,7 +205,7 @@ public class Spectacle {
     protected boolean enleverRepresentation(Representation representation) throws IllegalStateException {
         if (this.getRepresentations().size() <= 1) {
             throw new IllegalStateException(
-                    "Impossible de supprimer la représentation : le spectacle doit contenir au moins une représentation.");
+                    "Impossible de supprimer la représentation : le spectacle doit avoir au moins une représentation.");
         }
         return this.getRepresentations().remove(representation);
     }
@@ -273,6 +278,7 @@ public class Spectacle {
 
     /**
      * Ajoute un tarif.
+     * 
      * @param tarif Le tarif à ajouter.
      * @return {@code true} si le tarif n'existe pas déjà.
      */
@@ -282,6 +288,7 @@ public class Spectacle {
 
     /**
      * Supprime un tarif.
+     * 
      * @param tarif Le tarif à supprimer.
      * @return {@code true} si le tarif existe.
      */
