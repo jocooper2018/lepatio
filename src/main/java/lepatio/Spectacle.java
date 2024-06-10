@@ -51,6 +51,7 @@ public class Spectacle {
 
     /**
      * Retourne le nom du spectacle.
+     * 
      * @return Le nom du spectacle.
      */
     public String getNom() {
@@ -59,6 +60,7 @@ public class Spectacle {
 
     /**
      * Modifie le nom du spectacle.
+     * 
      * @param nom Le nouveau nom du spectacle.
      */
     public void setNom(String nom) {
@@ -67,6 +69,7 @@ public class Spectacle {
 
     /**
      * Retourne la durée du spectacle.
+     * 
      * @return La durée du spectacle.
      */
     public int getDuree() {
@@ -75,40 +78,87 @@ public class Spectacle {
 
     /**
      * Modifie la durée du spectacle.
+     * 
      * @param duree La nouvelle durée du spectacle.
      */
     public void setDuree(int duree) {
         this.duree = duree;
     }
 
+    /**
+     * Retourne le nombre maximum de spectateur pouvant assister au spectacle.
+     * 
+     * @return Le nombre maximum de spectateur pouvant assister au spectacle.
+     */
     public int getNbreMaxSpect() {
         return nbreMaxSpect;
     }
 
+    /**
+     * Modifie le nombre maximum de spectateur pouvant assister au spectacle.
+     * 
+     * @param nbreMaxSpect Le nouveau nombre maximum de spectateur pouvant assister
+     *                     au spectacle.
+     */
     public void setNbreMaxSpect(int nbreMaxSpect) {
         this.nbreMaxSpect = nbreMaxSpect;
     }
 
+    /**
+     * Retourne le genre du spectacle.
+     * 
+     * @return Le genre du spectacle.
+     */
     public Genre getGenre() {
         return genre;
     }
 
+    /**
+     * Modifie le genre du spectacle.
+     * 
+     * @param genre Le nouveau genre du spectacle.
+     */
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
+    /**
+     * Retourne l'ensemble des artistes.
+     * 
+     * @return L'ensemble ({@code Set}) des artistes.
+     */
     protected Set<Artiste> getArtistes() {
         return artistes;
     }
 
+    /**
+     * Ajoute un artiste au spectacle, et ajoute ce spectacle à l'artiste ajouté.
+     * 
+     * @param artiste L'artiste à ajouter.
+     * @return {@code true} si l'ensemble des artistes ne contient pas déjà
+     *         l'artiste à ajouter et si l'ensemble des spectacle de l'artiste ne
+     *         contient pas déjà ce spectacle.
+     */
     public boolean ajouterArtiste(Artiste artiste) {
-        artiste.ajouterSpectacle(this);
-        return this.getArtistes().add(artiste);
+        return artiste.ajouterSpectacle(this) && this.getArtistes().add(artiste);
     }
 
-    public boolean enleverArtiste(Artiste artiste) {
-        artiste.enleverSpectacle(this);
-        return this.getArtistes().remove(artiste);
+    /**
+     * Enlève un artiste de l'ensemble des artistes, et ce spectacle de l'ensemble
+     * des spectacles de l'artiste.
+     * 
+     * @param artiste L'artiste à enlever.
+     * @return {@code true} si l'ensemble des artistes contient l'artiste à enlever
+     *         et si l'ensemble des spectacle de l'artiste contient ce spectacle.
+     * @throws IllegalStateException Si l'ensemble des artiste contient un seul
+     *                               artiste ou moins.
+     */
+    public boolean enleverArtiste(Artiste artiste) throws IllegalStateException {
+        if (this.getArtistes().size() <= 1) {
+            throw new IllegalStateException(
+                    "Impossible de supprimer l'artiste : le spectacle doit contenir au moins un artiste.");
+        }
+        return artiste.enleverSpectacle(this) && this.getArtistes().remove(artiste);
     }
 
     protected Set<Representation> getRepresentations() {
