@@ -2,7 +2,7 @@ package lepatio;
 
 /**
  * La classe {@code Representation} représente une représentation d'un
- * spectacle. Une représentation est associé à un spectacle, à lieu à un jour
+ * spectacle. Une représentation est associé à un spectacle, a lieu à un jour
  * et une heure précise, et peut être annulée.
  * @author LE BOUT Matthieu
  * @see Spectacle
