@@ -68,7 +68,9 @@ public class Artiste {
      * @param spectacle Le spectacle à enlever.
      * @return {@code true} si l'ensemble des spectacles interprété par l'artiste
      *         contient le spectacle à enlever.
-     * @throws IllegalStateException
+     * @throws IllegalStateException Si l'ensemble des spectacles interprété par
+     *                               l'artiste ne contient qu'un seul spectacle ou
+     *                               moins.
      */
     protected boolean enleverSpectacle(Spectacle spectacle) throws IllegalStateException {
         if (this.getSpectacles().size() <= 1) {
