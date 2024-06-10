@@ -36,5 +36,37 @@ public class Tarif {
         this.zone = zone;
     }
 
-    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (pleinTarif ^ (pleinTarif >>> 32));
+        result = prime * result + ((spectacle == null) ? 0 : spectacle.hashCode());
+        result = prime * result + ((zone == null) ? 0 : zone.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Tarif other = (Tarif) obj;
+        if (pleinTarif != other.pleinTarif)
+            return false;
+        if (spectacle == null) {
+            if (other.spectacle != null)
+                return false;
+        } else if (!spectacle.equals(other.spectacle))
+            return false;
+        if (zone == null) {
+            if (other.zone != null)
+                return false;
+        } else if (!zone.equals(other.zone))
+            return false;
+        return true;
+    }
 }
