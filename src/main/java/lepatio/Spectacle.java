@@ -8,7 +8,10 @@ import java.util.Set;
  * Un spectacle peut faire l'objet de plusieurs représentations.
  * 
  * @author LE BOUT Matthieu
+ * @see Genre
+ * @see Artiste
  * @see Representation
+ * @see Zone
  */
 public class Spectacle {
 
