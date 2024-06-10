@@ -29,15 +29,17 @@ public class Spectacle {
      * @param nbreMaxSpect           Le nombre maximum de spectateurs pouvant
      *                               assister à une représentation du spectacle.
      * @param genre                  Le genre du spectacle.
-     * @param premierArtiste         Le premier artiste à ajouter à la liste
-     *                               d'artiste.
-     * @param premiereZone           La première zone à ajouter à la liste des
+     * @param premierArtiste         Le premier artiste à ajouter à l'ensemble
+     *                               des artiste.
+     * @param premiereRepresentation La première représentation à l'ensemble des
+     *                               représentations.
+     * @param premiereZone           La première zone à ajouter à l'ensemble des
      *                               zones.
      * @param pleinTarifPremiereZone Le plein tarif associé à la première zone à
      *                               ajouter.
      */
-    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste, Zone premiereZone,
-            long pleinTarifPremiereZone) {
+    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste,
+            Representation premiereRepresentation, Zone premiereZone, long pleinTarifPremiereZone) {
         this.setNom(nom);
         this.setDuree(duree);
         this.setNbreMaxSpect(nbreMaxSpect);
@@ -45,6 +47,7 @@ public class Spectacle {
         this.artistes = new HashSet<Artiste>();
         this.ajouterArtiste(premierArtiste);
         this.representations = new HashSet<Representation>();
+        this.ajouterRepresentation(premiereRepresentation);
         this.zones = new HashSet<Zone>();
         this.ajouterZone(premiereZone, pleinTarifPremiereZone);
     }
@@ -161,15 +164,40 @@ public class Spectacle {
         return artiste.enleverSpectacle(this) && this.getArtistes().remove(artiste);
     }
 
+    /**
+     * Retourne l'ensemble des représentations.
+     * 
+     * @return L'ensemble des représentations.
+     */
     protected Set<Representation> getRepresentations() {
         return representations;
     }
 
+    /**
+     * Ajoute une représentation à l'ensemble des représentations.
+     * 
+     * @param representation La représentation à ajouter.
+     * @return {@code true} si l'ensemble des représentations ne contient pas déjà
+     *         la représentation à ajouter.
+     */
     protected boolean ajouterRepresentation(Representation representation) {
         return this.getRepresentations().add(representation);
     }
 
-    protected boolean enleverRepresentation(Representation representation) {
+    /**
+     * Enlève une représentation au spectacle.
+     * 
+     * @param representation La représentation à enlever.
+     * @return {@code true} si l'ensemble des représentations contient déjà la
+     *         représentation à ajouter.
+     * @throws IllegalStateException Si l'ensemble des représentations ne contient
+     *                               qu'une seule représentation ou moins.
+     */
+    protected boolean enleverRepresentation(Representation representation) throws IllegalStateException {
+        if (this.getRepresentations().size() <= 1) {
+            throw new IllegalStateException(
+                    "Impossible de supprimer la représentation : le spectacle doit contenir au moins une représentation.");
+        }
         return this.getRepresentations().remove(representation);
     }
 
