@@ -1,37 +1,76 @@
 package lepatio;
 
+/**
+ * La classe {@code Tarif} contient le plein tarif associé à un spectacle et à
+ * une zone.
+ * 
+ * @author LE BOUT Matthieu
+ * @see Spectacle
+ * @see Zone
+ */
 public class Tarif {
-    
+
     private long pleinTarif;
     private Spectacle spectacle;
     private Zone zone;
 
+    /**
+     * Construit un tarif avec les caractéristique spécifiées.
+     * 
+     * @param pleinTarif Le plein tarif en centimes.
+     * @param spectacle  Le spectacle associé.
+     * @param zone       La zone associé.
+     */
     public Tarif(long pleinTarif, Spectacle spectacle, Zone zone) {
         this.pleinTarif = pleinTarif;
         this.spectacle = spectacle;
         this.zone = zone;
     }
 
+    /**
+     * 
+     * @return Le plein tarif en centimes.
+     */
     public long getPleinTarif() {
         return pleinTarif;
     }
 
+    /**
+     * Change le plein tarif.
+     * @param pleinTarif Le nouveau plein tarif en centimes.
+     */
     public void setPleinTarif(long pleinTarif) {
         this.pleinTarif = pleinTarif;
     }
 
+    /**
+     * 
+     * @return Le spectacle associé.
+     */
     public Spectacle getSpectacle() {
         return spectacle;
     }
 
+    /**
+     * Change le spectacle associé.
+     * @param spectacle Le nouveau spectacle associé.
+     */
     public void setSpectacle(Spectacle spectacle) {
         this.spectacle = spectacle;
     }
 
+    /**
+     * 
+     * @return La zone associé.
+     */
     public Zone getZone() {
         return zone;
     }
 
+    /**
+     * Change la zone associé.
+     * @param zone La nouvelle zone associé.
+     */
     public void setZone(Zone zone) {
         this.zone = zone;
     }
