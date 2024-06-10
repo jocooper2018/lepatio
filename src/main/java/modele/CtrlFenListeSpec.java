@@ -1,10 +1,11 @@
 package modele;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.event.*;
+import main.Main;
 
 public class CtrlFenListeSpec {
 
@@ -25,7 +26,8 @@ public class CtrlFenListeSpec {
 
     @FXML
     void Fermer(ActionEvent event) {
-        System.exit(0);
+        Main.fermerAppli();
     }
 
 }
+        
