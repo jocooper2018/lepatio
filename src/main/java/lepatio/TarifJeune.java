@@ -1,8 +1,8 @@
 package lepatio;
 
 /**
- * La classe {@code TarifJeune} représente une tarification au tarif jeune
- * associé à un billet. Cette tarification apporte une réductions de 30%.
+ * La classe {@code TarifJeune} représente une tarification qui s'plique aux
+ * jeunes de moins de 25 ans. Cette tarification apporte une réduction de 30%.
  * 
  * @author LE BOUT Matthieu
  * @see Billet
