@@ -4,21 +4,29 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Certaine tarification apporte des réductions.
+ * La classe {@code Tarification} représente la tarification associé à un
+ * billet. Certaine tarification apporte des réductions.
  * 
  * @author LE BOUT Matthieu
  * @see Billet
+ * @see TarifJeune
+ * @see TarifAdulte
+ * @see TarifSenior
+ * @see TarifGroupe
+ * @see TarifAbonne
  */
 public abstract class Tarification {
 
     private Set<Billet> billets;
 
+    /**
+     * Construit une tarification.
+     */
     public Tarification() {
         this.billets = new HashSet<Billet>();
     }
 
     /**
-     * 
      * @return L'ensemble des billets associés.
      */
     public Set<Billet> getBillets() {
@@ -27,6 +35,7 @@ public abstract class Tarification {
 
     /**
      * Ajoute un billet à l'ensemble des billet associés
+     * 
      * @param billet Le billet à associer
      * @return {@code true} si le billet n'est pas déjà associé.
      */
@@ -36,6 +45,7 @@ public abstract class Tarification {
 
     /**
      * Enlève un billet à l'ensemble des billets associés.
+     * 
      * @param billet Le billet à enlever.
      * @return {@code true} si le billet est associé.
      */
