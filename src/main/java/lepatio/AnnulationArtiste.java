@@ -10,7 +10,7 @@ import java.util.Calendar;
  * 
  * @author LE BOUT Matthieu
  * @see Reservation
- * @see AnnulationArtiste
+ * @see Annulation
  * @see AnnulationClient
  */
 public class AnnulationArtiste extends Annulation {
