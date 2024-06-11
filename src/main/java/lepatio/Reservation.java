@@ -2,6 +2,7 @@ package lepatio;
 
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -22,6 +23,7 @@ public class Reservation {
     private Representation representation;
     private Set<Billet> billets;
     private Client client;
+    private Annulation annulation;
 
     /**
      * Construit une réservation.
@@ -42,6 +44,7 @@ public class Reservation {
         this.billets = new HashSet<Billet>();
         this.ajouterBillet(premierBillet);
         this.setClient(client);
+        this.annulation = null;
     }
 
     /**
@@ -157,5 +160,21 @@ public class Reservation {
      */
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    /**
+     * 
+     * @return {@code true} si la réservation est annulée.
+     */
+    public boolean estAnnulee() {
+        return Objects.nonNull(annulation);
+    }
+
+    /**
+     * Annule une réservation.
+     * @param annulation 
+     */
+    public void annuler(Annulation annulation) {
+        this.annulation = annulation;
     }
 }
