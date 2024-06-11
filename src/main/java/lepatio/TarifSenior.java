@@ -7,8 +7,8 @@ package lepatio;
  * @author LE BOUT Matthieu
  * @see Billet
  * @see Tarification
+ * @see TarifJeune
  * @see TarifAdulte
- * @see TarifSenior
  * @see TarifGroupe
  * @see TarifAbonne
  */
