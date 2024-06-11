@@ -6,13 +6,16 @@ public abstract class Annulation {
     
     private Calendar date;
     private boolean remboursementEffectue;
+    private Reservation reservation;
     
-    public Annulation(Calendar date, boolean remboursementEffectue) {
+    public Annulation(Reservation reservation, Calendar date, boolean remboursementEffectue) {
+        this.setReservation(reservation);
         this.setDate(date);
         this.remboursementEffectue = remboursementEffectue;
     }
 
-    public Annulation(Calendar date) {
+    public Annulation(Reservation reservation, Calendar date) {
+        this.setReservation(reservation);
         this.setDate(date);
         this.remboursementEffectue = false;
     }
@@ -31,5 +34,13 @@ public abstract class Annulation {
 
     public void rembourser() {
         this.remboursementEffectue = true;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 }
