@@ -8,6 +8,7 @@ import java.util.Set;
  * une adresse, un numéro de téléphone, un mail, et est identifié par un numéro.
  * Un client peut faire autant de réservation qu'il le souhaite, mais doit en
  * avoir fait au moins une pour être client.
+ * Si le client assiste à au moins 3 spectacle par ans, il est alors abonné.
  * 
  * @author LE BOUT Matthieu
  * @see Reservation
@@ -24,12 +25,13 @@ public class Client {
     private String adresse;
     private String tel;
     private String mail;
+    private boolean abonne;
     private Set<Reservation> reservations;
 
     private static int nombreDeClient = 0;
 
     /**
-     * Construit un client avec les paramètres spécifiés.
+     * Construit un client non-abonné avec les paramètres spécifiés.
      * 
      * @param nom                 Le nom du client.
      * @param prenom              Le prénom du client.
@@ -46,6 +48,31 @@ public class Client {
         this.setAdresse(adresse);
         this.setTel(tel);
         this.setMail(mail);
+        this.abonne = false;
+        this.reservations = new HashSet<>();
+        this.ajouterReservation(premiereReservation);
+    }
+
+    /**
+     * Construit un client avec les paramètres spécifiés.
+     * 
+     * @param nom                 Le nom du client.
+     * @param prenom              Le prénom du client.
+     * @param adresse             L'adresse postale du client.
+     * @param tel                 Le numéro de téléphone de client.
+     * @param mail                L'adresse e-mail du client.
+     * @param abonne              Si le client est abonné.
+     * @param premiereReservation La première réservation effectuer par le client.
+     */
+    public Client(String nom, String prenom, String adresse, String tel, String mail, boolean abonne,
+            Reservation premiereReservation) {
+        this.numero = String.valueOf(Client.nombreDeClient++);
+        this.setNom(nom);
+        this.setPrenom(prenom);
+        this.setAdresse(adresse);
+        this.setTel(tel);
+        this.setMail(mail);
+        this.abonne = abonne;
         this.reservations = new HashSet<>();
         this.ajouterReservation(premiereReservation);
     }
@@ -128,6 +155,27 @@ public class Client {
      */
     public void setMail(String mail) {
         this.mail = mail;
+    }
+    
+    /**
+     * @return {@code true} si le client est abonné.
+     */
+    public boolean estAbonne() {
+        return this.abonne;
+    }
+
+    /**
+     * Abonne le client.
+     */
+    public void abonner() {
+        this.abonne = true;
+    }
+
+    /**
+     * Désabonne le client.
+     */
+    public void desabonner() {
+        this.abonne = false;
     }
 
     /**
