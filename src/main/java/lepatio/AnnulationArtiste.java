@@ -4,11 +4,11 @@ import java.util.Calendar;
 
 public class AnnulationArtiste extends Annulation {
 
-    public AnnulationArtiste(Calendar date) {
-        super(date);
+    public AnnulationArtiste(Reservation reservation, Calendar date) {
+        super(reservation, date);
     }
     
-    public AnnulationArtiste(Calendar date, boolean remboursementEffectue) {
-        super(date, remboursementEffectue);
+    public AnnulationArtiste(Reservation reservation, Calendar date, boolean remboursementEffectue) {
+        super(reservation, date, remboursementEffectue);
     }
 }
