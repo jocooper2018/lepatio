@@ -1,7 +1,7 @@
 package lepatio;
 
 /**
- * La classe {@code TarifSenior} représente une tarification qui s'plique aux
+ * La classe {@code TarifSenior} représente une tarification qui s'applique aux
  * senior de plus de 65 ans. Cette tarification apporte une réduction de 25%.
  * 
  * @author LE BOUT Matthieu
