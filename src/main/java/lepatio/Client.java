@@ -15,13 +15,18 @@ import java.util.Set;
  */
 public class Client {
 
+    /**
+     * Le numéro du client.
+     */
+    public final String numero;
     private String nom;
     private String prenom;
     private String adresse;
     private String tel;
     private String mail;
-    private String numero;
     private Set<Reservation> reservations;
+
+    private static int nombreDeClient = 0;
 
     /**
      * Construit un client avec les paramètres spécifiés.
@@ -31,18 +36,17 @@ public class Client {
      * @param adresse             L'adresse postale du client.
      * @param tel                 Le numéro de téléphone de client.
      * @param mail                L'adresse e-mail du client.
-     * @param numero              Le numéro du client.
      * @param premiereReservation La première réservation effectuer par le client.
      */
-    public Client(String nom, String prenom, String adresse, String tel, String mail, String numero,
+    public Client(String nom, String prenom, String adresse, String tel, String mail,
             Reservation premiereReservation) {
+        this.numero = String.valueOf(Client.nombreDeClient++);
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setAdresse(adresse);
         this.setTel(tel);
         this.setMail(mail);
-        this.setNumero(numero);
-        this.reservations = new HashSet<Reservation>();
+        this.reservations = new HashSet<>();
         this.ajouterReservation(premiereReservation);
     }
 
@@ -124,22 +128,6 @@ public class Client {
      */
     public void setMail(String mail) {
         this.mail = mail;
-    }
-
-    /**
-     * @return Le numéro du client.
-     */
-    public String getNumero() {
-        return numero;
-    }
-
-    /**
-     * Change le numéro du client.
-     * 
-     * @param numero
-     */
-    public void setNumero(String numero) {
-        this.numero = numero;
     }
 
     /**
