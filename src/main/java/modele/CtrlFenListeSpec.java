@@ -6,11 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import main.Main;
+import lepatio.*;
 
 public class CtrlFenListeSpec {
 
     @FXML
-    private ListView<?> ListeFiltre;
+    private ListView<Genre> ListeFiltre;
 
     @FXML
     private ListView<?> ListeSpectacle;
@@ -22,6 +23,10 @@ public class CtrlFenListeSpec {
     private Button bnFermer;
 
     @FXML
+    private Button bnSelectionner;
+
+
+    @FXML
     private TextField txtFiltre;
 
     @FXML
@@ -29,5 +34,13 @@ public class CtrlFenListeSpec {
         Main.fermerAppli();
     }
 
+    @FXML
+    void CreerGenre(ActionEvent event) {
+        Main.ouvrirCreerGenre();
+    }
+
+    public void addGenreToListView(Genre genre) {
+        ListeFiltre.getItems().add(genre);
+    }
+
 }
-        
