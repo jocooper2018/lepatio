@@ -29,14 +29,25 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </TextField>
-            <ListView fx:id="ListeFiltre" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1px;" visible="false">
+            <ListView fx:id="ListeFiltre" prefHeight="353.0" prefWidth="296.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1px;" visible="false">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </ListView>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="bnFermer" alignment="CENTER" mnemonicParsing="false" onAction="#Fermer" style="-fx-background-color: #5d91ff;" text="Fermer" textFill="WHITE">
+                  <Button fx:id="bnSelectionner" disable="true" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #5d91ff;" text="Sélectionner" textFill="WHITE">
+                     <font>
+                        <Font name="M PLUS 2 Black" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.0" left="30.0" right="30.0" top="2.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="bnFermer" alignment="CENTER" mnemonicParsing="false" onAction="#Fermer" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #5d91ff;" text="Fermer" textFill="WHITE">
                      <padding>
                         <Insets bottom="2.0" left="30.0" right="30.0" top="2.0" />
                      </padding>

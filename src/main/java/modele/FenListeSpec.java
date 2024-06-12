@@ -3,6 +3,7 @@ package modele;
 import java.io.IOException;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lepatio.Genre;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 
