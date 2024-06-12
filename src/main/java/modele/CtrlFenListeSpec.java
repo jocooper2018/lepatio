@@ -11,10 +11,10 @@ import lepatio.*;
 public class CtrlFenListeSpec {
 
     @FXML
-    private ListView<Genre> ListeFiltre;
+    private ListView<Genre> listeFiltre;
 
     @FXML
-    private ListView<?> ListeSpectacle;
+    private ListView<?> listeSpectacle;
 
     @FXML
     private Button bnCreerGenre;
@@ -30,17 +30,49 @@ public class CtrlFenListeSpec {
     private TextField txtFiltre;
 
     @FXML
-    void Fermer(ActionEvent event) {
+    void fermer(ActionEvent event) {
         Main.fermerAppli();
     }
 
+    static public void creerGenre(String nomGenre){
+		Genre genre = new Genre(nomGenre);
+		CtrlFenListeSpec.addGenreToListView(genre);
+	}
+
+    
+    public ListView<Genre> getListeFiltre() {
+        return listeFiltre;
+    }
+    public ListView<?> getListeSpectacle() {
+        return listeSpectacle;
+    }
+    public Button getBnCreerGenre() {
+        return bnCreerGenre;
+    }
+    public Button getBnFermer() {
+        return bnFermer;
+    }
+    public Button getBnSelectionner() {
+        return bnSelectionner;
+    }
+    public TextField getTxtFiltre() {
+        return txtFiltre;
+    }
+
+
+
     @FXML
-    void CreerGenre(ActionEvent event) {
+    void creerGenre(ActionEvent event) {
         Main.ouvrirCreerGenre();
     }
 
-    public void addGenreToListView(Genre genre) {
-        ListeFiltre.getItems().add(genre);
+    static public void addGenreToListView(Genre genre) {
+        listeFiltre.getItems().add(genre);
+    }
+
+    public void initialize(){
+        listeFiltre = new ListView<Genre>();
+        
     }
 
 }
