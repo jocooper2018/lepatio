@@ -25,7 +25,6 @@ public class CtrlFenListeSpec {
     @FXML
     private Button bnSelectionner;
 
-
     @FXML
     private TextField txtFiltre;
 
@@ -33,46 +32,39 @@ public class CtrlFenListeSpec {
     void fermer(ActionEvent event) {
         Main.fermerAppli();
     }
-
-    static public void creerGenre(String nomGenre){
-		Genre genre = new Genre(nomGenre);
-		CtrlFenListeSpec.addGenreToListView(genre);
-	}
-
     
     public ListView<Genre> getListeFiltre() {
         return listeFiltre;
     }
+
     public ListView<?> getListeSpectacle() {
         return listeSpectacle;
     }
+
     public Button getBnCreerGenre() {
         return bnCreerGenre;
     }
+
     public Button getBnFermer() {
         return bnFermer;
     }
+
     public Button getBnSelectionner() {
         return bnSelectionner;
     }
+
     public TextField getTxtFiltre() {
         return txtFiltre;
     }
-
-
 
     @FXML
     void creerGenre(ActionEvent event) {
         Main.ouvrirCreerGenre();
     }
 
-    static public void addGenreToListView(Genre genre) {
-        listeFiltre.getItems().add(genre);
-    }
-
-    public void initialize(){
+    public void initialize() {
         listeFiltre = new ListView<Genre>();
-        
+
     }
 
 }

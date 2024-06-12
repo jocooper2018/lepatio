@@ -23,7 +23,7 @@ public class CtrlFenCreerGenre {
 
     @FXML
     void CreerGenre(ActionEvent event) {
-        CtrlFenListeSpec.creerGenre(txtNom.textProperty().get());
+        Main.creerGenre(txtNom.textProperty().get());
     }
 
     @FXML
