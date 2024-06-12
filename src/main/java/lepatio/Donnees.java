@@ -1,10 +1,11 @@
 package lepatio;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Donnees {
     
-    private static ObservableList<Genre> listeGenre;
+    private static ObservableList<Genre> listeGenre = FXCollections.observableArrayList();
 
     public static ObservableList<Genre> getListeGenre() {
         return Donnees.listeGenre;

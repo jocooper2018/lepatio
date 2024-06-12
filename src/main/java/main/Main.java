@@ -1,7 +1,6 @@
 package main;
 
 import javafx.application.Application;
-import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lepatio.Donnees;
@@ -11,16 +10,17 @@ import modele.*;
 public class Main extends Application {
     private static FenListeSpec fListe;
     private static FenCreerGenre fCreer;
-    private static ListView<Genre> ctrlListe;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        Donnees.ajouterGenre(new Genre("Azerty"));
 
         Main.fListe = new FenListeSpec();
         Main.fCreer = new FenCreerGenre();
 
         Main.fCreer.initModality(Modality.APPLICATION_MODAL);
-        this.fListe.show();
+        Main.fListe.show();
     }
 
     // Gestion des fenêtres
@@ -41,6 +41,7 @@ public class Main extends Application {
 
     public static void creerGenre(Genre genre) {
         Donnees.ajouterGenre(genre);
+        Main.fermerPopup();
     }
 
     public static void creerGenre(String nomGenre) {
