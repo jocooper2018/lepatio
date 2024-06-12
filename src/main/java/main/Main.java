@@ -14,8 +14,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Donnees.ajouterGenre(new Genre("Azerty"));
-
         Main.fListe = new FenListeSpec();
         Main.fCreer = new FenCreerGenre();
 
@@ -34,6 +32,7 @@ public class Main extends Application {
     }
 
     public static void ouvrirCreerGenre() {
+        Main.fCreer.clear();
         Main.fCreer.show();
     }
 

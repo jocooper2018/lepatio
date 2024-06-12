@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 
 
 public class FenCreerGenre extends Stage {
+
+	private CtrlFenCreerGenre ctrl;
 	
 	public FenCreerGenre() throws IOException {
 		this.setTitle("Création d'un genre");
@@ -20,8 +22,12 @@ public class FenCreerGenre extends Stage {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/lepatio/FenPopupCreerGenre.fxml"));
         Pane root = loader.load();
-        loader.getController();
+        ctrl = loader.getController();
         return root;
+	}
+
+	public void clear() {
+		ctrl.clear();
 	}
 }
 

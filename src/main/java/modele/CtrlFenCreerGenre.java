@@ -30,4 +30,8 @@ public class CtrlFenCreerGenre {
     void Fermer(ActionEvent event) {
         Main.fermerPopup();
     }
+
+    public void clear() {
+        txtNom.clear();
+    }
 }
