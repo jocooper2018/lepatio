@@ -107,7 +107,7 @@ public class Donnees {
         spectacle1.ajouterArtiste(artisteAlbert);
         spectacle1.ajouterArtiste(artisteEldwin);
         spectacle1.ajouterArtiste(artisteJorgul);
-        spectacle1.ajouterZone(zoneScene, 3000L);
+        spectacle1.ajouterZone(zoneScene, 2500L);
         spectacle1.ajouterZone(zoneOrchestre, 1000L);
         spectacle1.ajouterZone(zoneBalcon, 2000L);
         spectacle1.ajouterZone(zoneLogesDroites, 1500L);
