@@ -8,6 +8,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import lepatio.Spectacle;
 import main.Main;
 
 public class CtrlFenStatistique {
@@ -25,18 +27,6 @@ public class CtrlFenStatistique {
     private RadioButton rdButtonNomSpec;
 
     @FXML
-    private TableColumn<?, ?> tableColonne1;
-
-    @FXML
-    private TableColumn<?, ?> tableColonne2;
-
-    @FXML
-    private TableColumn<?, ?> tableColonne3;
-
-    @FXML
-    private TableColumn<?, ?> tableColonne4;
-
-    @FXML
     private TableView<?> tableau;
 
     @FXML
@@ -50,4 +40,9 @@ public class CtrlFenStatistique {
         Main.fermerStat();
     }
 
+    public void initialize(){
+        TableColumn colonne1 = new TableColumn<Spectacle, String>("Nom");
+        colonne1.setCellValueFactory(new PropertyValueFactory<Spectacle, String>("nom"));
+        this.tableau.getColumns().set(0, colonne1);
+    }
 }
