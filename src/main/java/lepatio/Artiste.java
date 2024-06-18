@@ -19,13 +19,11 @@ public class Artiste {
     /**
      * Construit un artiste avec son nom et son premier spectacle.
      * 
-     * @param nom              Nom de l'artiste.
-     * @param premierSpectacle Premier spectacle interprété par l'artiste.
+     * @param nom Nom de l'artiste.
      */
-    public Artiste(String nom, Spectacle premierSpectacle) {
+    public Artiste(String nom) {
         this.nom = nom;
         this.spectacles = new HashSet<Spectacle>();
-        this.spectacles.add(premierSpectacle);
     }
 
     /**

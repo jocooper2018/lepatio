@@ -15,7 +15,7 @@ public class CtrlFenListeSpec {
     private ListView<Genre> listeFiltre;
 
     @FXML
-    private ListView<?> listeSpectacle;
+    private ListView<Spectacle> listeSpectacle;
 
     @FXML
     private Button bnCreerGenre;
@@ -66,6 +66,7 @@ public class CtrlFenListeSpec {
     public void initialize() {
         listeFiltre.setItems(Donnees.getListeGenre());
         listeFiltre.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        listeSpectacle.setItems(Donnees.getListeSpectacle());
     }
 
 }

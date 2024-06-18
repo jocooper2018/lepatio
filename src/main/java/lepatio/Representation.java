@@ -83,4 +83,41 @@ public class Representation {
     public Spectacle getSpectacle() {
         return spectacle;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((jour == null) ? 0 : jour.hashCode());
+        result = prime * result + ((heure == null) ? 0 : heure.hashCode());
+        result = prime * result + ((spectacle == null) ? 0 : spectacle.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Representation other = (Representation) obj;
+        if (jour == null) {
+            if (other.jour != null)
+                return false;
+        } else if (!jour.equals(other.jour))
+            return false;
+        if (heure == null) {
+            if (other.heure != null)
+                return false;
+        } else if (!heure.equals(other.heure))
+            return false;
+        if (spectacle == null) {
+            if (other.spectacle != null)
+                return false;
+        } else if (!spectacle.equals(other.spectacle))
+            return false;
+        return true;
+    }
 }
