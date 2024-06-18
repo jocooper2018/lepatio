@@ -34,4 +34,8 @@ public class CtrlFenCreerGenre {
     public void clear() {
         txtNom.clear();
     }
+
+    public void initialize() {
+        this.bnCreerGenre.disableProperty().bind(this.txtNom.textProperty().isEmpty());
+    }
 }
