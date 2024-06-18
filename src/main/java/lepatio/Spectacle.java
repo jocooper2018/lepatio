@@ -33,32 +33,20 @@ public class Spectacle {
     /**
      * Construit un nouveau spectacle avec les paramètres spécifiés.
      * 
-     * @param nom                    Le nom du spectacle.
-     * @param duree                  La durée du spectacle.
-     * @param nbreMaxSpect           Le nombre maximum de spectateurs pouvant
-     *                               assister à une représentation du spectacle.
-     * @param genre                  Le genre du spectacle.
-     * @param premierArtiste         Le premier artiste à ajouter à l'ensemble
-     *                               des artiste.
-     * @param premiereRepresentation La première représentation à l'ensemble des
-     *                               représentations.
-     * @param premiereZone           La première zone à ajouter à l'ensemble des
-     *                               zones.
-     * @param pleinTarifPremiereZone Le plein tarif associé à la première zone à
-     *                               ajouter.
+     * @param nom          Le nom du spectacle.
+     * @param duree        La durée du spectacle.
+     * @param nbreMaxSpect Le nombre maximum de spectateurs pouvant
+     *                     assister à une représentation du spectacle.
+     * @param genre        Le genre du spectacle.
      */
-    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre, Artiste premierArtiste,
-            Representation premiereRepresentation, Zone premiereZone, long pleinTarifPremiereZone) {
+    public Spectacle(String nom, int duree, int nbreMaxSpect, Genre genre) {
         this.setNom(nom);
         this.setDuree(duree);
         this.setNbreMaxSpect(nbreMaxSpect);
         this.setGenre(genre);
         this.artistes = new HashSet<Artiste>();
-        this.ajouterArtiste(premierArtiste);
         this.representations = new HashSet<Representation>();
-        this.ajouterRepresentation(premiereRepresentation);
         this.zones = new HashSet<Zone>();
-        this.ajouterZone(premiereZone, pleinTarifPremiereZone);
     }
 
     /**
