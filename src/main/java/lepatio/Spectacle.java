@@ -314,4 +314,8 @@ public class Spectacle {
             return false;
         return true;
     }
+
+    public String toString() {
+        return this.getNom();
+    }
 }
