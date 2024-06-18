@@ -17,6 +17,8 @@ public class Main extends Application {
         Main.fListe = new FenListeSpec();
         Main.fCreer = new FenCreerGenre();
 
+        Donnees.chargerDonnees();
+
         Main.fCreer.initModality(Modality.APPLICATION_MODAL);
         Main.fListe.show();
     }

@@ -40,4 +40,13 @@ public class Donnees {
     public static boolean supprimerGenre(Genre genre) {
         return Donnees.getListeGenre().remove(genre);
     }
+
+    public static void chargerDonnees() {
+        Donnees.ajouterGenre(new Genre("Théâtre"));
+        Donnees.ajouterGenre(new Genre("Marionnette"));
+        Donnees.ajouterGenre(new Genre("Cirque"));
+        Donnees.ajouterGenre(new Genre("Musique"));
+        Donnees.ajouterGenre(new Genre("Opera"));
+        Donnees.ajouterGenre(new Genre("Danse"));
+    }
 }
