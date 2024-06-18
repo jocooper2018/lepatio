@@ -1,14 +1,29 @@
 package modele;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import lepatio.Artiste;
+import lepatio.Representation;
+import lepatio.Spectacle;
+import lepatio.Donnees;
+import lepatio.Genre;
+import lepatio.Zone;
 import main.Main;
+
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class CtrlFenStatistique {
 
@@ -16,28 +31,10 @@ public class CtrlFenStatistique {
     private Button bnRetour;
 
     @FXML
-    private ChoiceBox<?> choiceBox;
+    private ChoiceBox<String> choiceBox;
 
     @FXML
-    private RadioButton rdButtonNomArt;
-
-    @FXML
-    private RadioButton rdButtonNomSpec;
-
-    @FXML
-    private TableColumn<?, ?> tableColonne1;
-
-    @FXML
-    private TableColumn<?, ?> tableColonne2;
-
-    @FXML
-    private TableColumn<?, ?> tableColonne3;
-
-    @FXML
-    private TableColumn<?, ?> tableColonne4;
-
-    @FXML
-    private TableView<?> tableau;
+    private TableView<Map<String, String>> tableau;
 
     @FXML
     private TextField txtCASaison;
@@ -45,9 +42,18 @@ public class CtrlFenStatistique {
     @FXML
     private TextField txtNbVendu;
 
+    private ObservableList<Spectacle> spectacles;
+
+    public void initialize() {
+        spectacles = FXCollections.observableArrayList(Donnees.getListeSpectacle());
+
+        // Configuration de la ChoiceBox
+        choiceBox.getItems().addAll("Spectacle", "Représentation", "Artiste");
+        choiceBox.setValue("Spectacle"); // Valeur par défaut
+    }
+    
     @FXML
-    void fermerFenetre(ActionEvent event) { 
+    void fermerFenetre(ActionEvent event) {
         Main.fermerStat();
     }
-
 }

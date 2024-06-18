@@ -19,6 +19,8 @@ public class Donnees {
     private static ObservableList<Spectacle> listeSpectacle = FXCollections.observableArrayList();
     private static ObservableList<Representation> listeRepresentations = FXCollections.observableArrayList();
     private static ObservableList<Reservation> listeReservations = FXCollections.observableArrayList();
+    private static ObservableList<Artiste> listeArtistes = FXCollections.observableArrayList();
+
 
     /**
      * @return La liste de tous les genres créés.
@@ -81,6 +83,18 @@ public class Donnees {
         return Donnees.getListeReservations().remove(Reservation);
     }
 
+    public static ObservableList<Artiste> getListeArtiste() {
+        return Donnees.listeArtistes;
+    }
+
+    public static boolean ajouterArtiste(Artiste artiste) {
+        return Donnees.getListeArtiste().add(artiste);
+    }
+
+    public static boolean supprimerArtiste(Artiste artiste) {
+        return Donnees.getListeArtiste().remove(artiste);
+    }
+
     public static void chargerDonnees() {
 
         Genre genreTheatre = new Genre("Théâtre");
@@ -102,6 +116,7 @@ public class Donnees {
         Artiste artisteTiti = new Artiste("Titi Hicks");
         Artiste artisteElendur = new Artiste("Elendur Sylverël");
         Artiste artisteFulbert = new Artiste("Fulbert Clovis");
+
 
         Spectacle spectacle1 = new Spectacle("Les guadeloupéens", 161, 504, genreOpera);
         spectacle1.ajouterArtiste(artisteAlbert);
