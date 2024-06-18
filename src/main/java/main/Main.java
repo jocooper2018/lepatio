@@ -10,16 +10,19 @@ import modele.*;
 public class Main extends Application {
     private static FenListeSpec fListe;
     private static FenCreerGenre fCreer;
+    private static FenAffichageStatistique fStat;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         Main.fListe = new FenListeSpec();
         Main.fCreer = new FenCreerGenre();
+        Main.fStat = new FenAffichageStatistique();
 
         Donnees.chargerDonnees();
 
         Main.fCreer.initModality(Modality.APPLICATION_MODAL);
+        Main.fStat.initModality(Modality.APPLICATION_MODAL);
         Main.fListe.show();
     }
 
@@ -33,6 +36,13 @@ public class Main extends Application {
         Main.fCreer.close();
     }
 
+    public static void ouvrirStat(){
+        Main.fStat.show();
+    }
+
+    public static void fermerStat(){
+        Main.fStat.close();
+    }
     public static void ouvrirCreerGenre() {
         Main.fCreer.clear();
         Main.fCreer.show();
