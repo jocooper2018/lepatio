@@ -117,6 +117,12 @@ public class Donnees {
         Artiste artisteElendur = new Artiste("Elendur Sylverël");
         Artiste artisteFulbert = new Artiste("Fulbert Clovis");
 
+        Donnees.ajouterArtiste(artisteAlbert);
+        Donnees.ajouterArtiste(artisteFulbert);
+        Donnees.ajouterArtiste(artisteEldwin);
+        Donnees.ajouterArtiste(artisteTiti);
+        Donnees.ajouterArtiste(artisteElendur);
+        Donnees.ajouterArtiste(artisteJorgul);
 
         Spectacle spectacle1 = new Spectacle("Les guadeloupéens", 161, 504, genreOpera);
         spectacle1.ajouterArtiste(artisteAlbert);

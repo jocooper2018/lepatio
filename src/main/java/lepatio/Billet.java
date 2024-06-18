@@ -33,6 +33,7 @@ public class Billet {
         this.setReservation(reservation);
         this.setFauteuil(fauteuil);
         this.setTarification(tarification);
+        
     }
 
     /**
@@ -56,7 +57,7 @@ public class Billet {
      * 
      * @return La réservation associé au billet.
      */
-    protected Reservation getReservation() {
+    public Reservation getReservation() {
         return reservation;
     }
 
@@ -73,7 +74,7 @@ public class Billet {
      * 
      * @return Le fauteuil réservé.
      */
-    protected Fauteuil getFauteuil() {
+    public Fauteuil getFauteuil() {
         return fauteuil;
     }
 

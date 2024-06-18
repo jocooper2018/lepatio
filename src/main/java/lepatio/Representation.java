@@ -1,5 +1,8 @@
 package lepatio;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * La classe {@code Representation} représente une représentation d'un
  * spectacle. Une représentation est associé à un spectacle, a lieu à un jour
@@ -13,6 +16,18 @@ public class Representation {
     private String heure;
     private boolean annulee;
     private Spectacle spectacle;
+    private Set<Reservation> reservations;
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    
 
     /**
      * Construit une représentation d'un spectacle à un jour et une heure précise.
@@ -26,8 +41,10 @@ public class Representation {
         this.heure = heure;
         this.spectacle = spectacle;
         this.annulee = false;
+        this.reservations = new HashSet<Reservation>();
         spectacle.ajouterRepresentation(this);
     }
+
 
     /**
      * 

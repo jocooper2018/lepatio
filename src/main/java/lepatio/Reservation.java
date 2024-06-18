@@ -44,6 +44,7 @@ public class Reservation {
         this.billets = new HashSet<Billet>();
         this.setClient(client);
         this.annulation = null;
+        representation.getReservations().add(this);
     }
 
     /**
@@ -79,6 +80,14 @@ public class Reservation {
      */
     public void setDateEnvoiConf(Calendar dateEnvoiConf) {
         this.dateEnvoiConf = dateEnvoiConf;
+    }
+
+    public int getNbReservations() {
+        return nbReservations;
+    }
+
+    public void setNbReservations(int nbReservations) {
+        Reservation.nbReservations = nbReservations;
     }
 
     /**

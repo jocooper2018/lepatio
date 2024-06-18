@@ -75,6 +75,19 @@ public class Tarif {
         this.zone = zone;
     }
 
+    public long calculerMontant(Billet billet) {
+        
+        long tarifBillet = this.pleinTarif;
+        if(billet.getReservation().getClient().estAbonne()){
+            tarifBillet = (long)(this.pleinTarif * (1-TarifAbonne.reductionStatic));
+        }
+        else if(billet.getReservation().getNbReservations() >= 8){
+            tarifBillet = (long)(this.pleinTarif * (1-TarifGroupe.reductionStatic));
+        }
+        return tarifBillet;
+    }
+    
+
     @Override
     public int hashCode() {
         final int prime = 31;

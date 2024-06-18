@@ -127,7 +127,7 @@ public class Spectacle {
      * 
      * @return L'ensemble ({@code Set}) des artistes.
      */
-    protected Set<Artiste> getArtistes() {
+    public Set<Artiste> getArtistes() {
         return artistes;
     }
 
@@ -166,7 +166,7 @@ public class Spectacle {
      * 
      * @return L'ensemble des représentations.
      */
-    protected Set<Representation> getRepresentations() {
+    public Set<Representation> getRepresentations() {
         return representations;
     }
 

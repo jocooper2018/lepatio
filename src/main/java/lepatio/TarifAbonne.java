@@ -23,4 +23,5 @@ public class TarifAbonne extends Tarification {
     public TarifAbonne() {
         super();
     }
+
 }
