@@ -10,15 +10,18 @@ import modele.*;
 public class Main extends Application {
     private static FenListeSpec fListe;
     private static FenCreerGenre fCreer;
+    private static FenAffichageStatistique fStat;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         Main.fListe = new FenListeSpec();
         Main.fCreer = new FenCreerGenre();
+        Main.fStat = new FenAffichageStatistique();
 
         Main.fCreer.initModality(Modality.APPLICATION_MODAL);
         Main.fListe.show();
+        Main.fStat.show();
     }
 
     // Gestion des fenêtres

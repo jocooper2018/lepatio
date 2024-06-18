@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView prefHeight="400.0" prefWidth="318.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <VBox prefHeight="400.0" prefWidth="306.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="256.0" prefWidth="294.0" spacing="20.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <ComboBox prefWidth="180.0" promptText="シアテ゛ア--ティスト" />
+               </children>
+            </VBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="163.0" prefWidth="294.0" spacing="10.0">
+               <children>
+                  <VBox prefHeight="134.0" prefWidth="199.0">
+                     <children>
+                        <Label text="Label" />
+                        <TextField />
+                        <Label text="Label" />
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #5d91ff;" text="Retour" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
