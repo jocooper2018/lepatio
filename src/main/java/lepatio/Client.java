@@ -33,15 +33,13 @@ public class Client {
     /**
      * Construit un client non-abonné avec les paramètres spécifiés.
      * 
-     * @param nom                 Le nom du client.
-     * @param prenom              Le prénom du client.
-     * @param adresse             L'adresse postale du client.
-     * @param tel                 Le numéro de téléphone de client.
-     * @param mail                L'adresse e-mail du client.
-     * @param premiereReservation La première réservation effectuer par le client.
+     * @param nom     Le nom du client.
+     * @param prenom  Le prénom du client.
+     * @param adresse L'adresse postale du client.
+     * @param tel     Le numéro de téléphone de client.
+     * @param mail    L'adresse e-mail du client.
      */
-    public Client(String nom, String prenom, String adresse, String tel, String mail,
-            Reservation premiereReservation) {
+    public Client(String nom, String prenom, String adresse, String tel, String mail) {
         this.numero = String.valueOf(Client.nombreDeClient++);
         this.setNom(nom);
         this.setPrenom(prenom);
@@ -50,7 +48,6 @@ public class Client {
         this.setMail(mail);
         this.abonne = false;
         this.reservations = new HashSet<>();
-        this.ajouterReservation(premiereReservation);
     }
 
     /**
@@ -156,7 +153,7 @@ public class Client {
     public void setMail(String mail) {
         this.mail = mail;
     }
-    
+
     /**
      * @return {@code true} si le client est abonné.
      */

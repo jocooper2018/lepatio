@@ -1,6 +1,7 @@
 package lepatio;
 
 import java.util.Collection;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -17,6 +18,7 @@ public class Donnees {
     private static ObservableList<Genre> listeGenre = FXCollections.observableArrayList();
     private static ObservableList<Spectacle> listeSpectacle = FXCollections.observableArrayList();
     private static ObservableList<Representation> listeRepresentations = FXCollections.observableArrayList();
+    private static ObservableList<Reservation> listeReservations = FXCollections.observableArrayList();
 
     /**
      * @return La liste de tous les genres créés.
@@ -67,6 +69,18 @@ public class Donnees {
         return Donnees.getListeRepresentations().remove(representation);
     }
 
+    public static ObservableList<Reservation> getListeReservations() {
+        return Donnees.listeReservations;
+    }
+
+    public static boolean ajouterReservation(Reservation Reservation) {
+        return Donnees.getListeReservations().add(Reservation);
+    }
+
+    public static boolean supprimerReservation(Reservation Reservation) {
+        return Donnees.getListeReservations().remove(Reservation);
+    }
+
     public static void chargerDonnees() {
 
         Genre genreTheatre = new Genre("Théâtre");
@@ -114,6 +128,28 @@ public class Donnees {
         Representation representation3_3 = new Representation("24/07/2024", "20h20", spectacle3);
         Representation representation3_4 = new Representation("27/07/2024", "15h15", spectacle3);
 
+        Client client1 = new Client("quoive", "Toto", "L'adresse de Toto", "0606060606", "adresse@email.com");
+        Client client2 = new Client("kantunz", "Jojo", "L'adresse de Jojo", "0707070707", "adresse@email.fr");
+        Client client3 = new Client("ninlusy", "Tata", "L'adresse de Tata", "0202020202", "adresse@email.org");
+
+        Reservation reservation1 = new Reservation(new GregorianCalendar(), null, representation1_1, client1);
+        Reservation reservation2 = new Reservation(new GregorianCalendar(), null, representation2_1, client1);
+        Reservation reservation3 = new Reservation(new GregorianCalendar(), null, representation3_1, client1);
+        Reservation reservation4 = new Reservation(new GregorianCalendar(), null, representation1_1, client2);
+        Reservation reservation5 = new Reservation(new GregorianCalendar(), null, representation2_1, client2);
+        Reservation reservation6 = new Reservation(new GregorianCalendar(), null, representation3_1, client2);
+        Reservation reservation7 = new Reservation(new GregorianCalendar(), null, representation1_1, client3);
+        Reservation reservation8 = new Reservation(new GregorianCalendar(), null, representation2_1, client3);
+
+        reservation1.ajouterBillet(new Billet(reservation1, null, new TarifAdulte()));
+        reservation2.ajouterBillet(new Billet(reservation2, null, new TarifAdulte()));
+        reservation3.ajouterBillet(new Billet(reservation3, null, new TarifAdulte()));
+        reservation4.ajouterBillet(new Billet(reservation4, null, new TarifAdulte()));
+        reservation5.ajouterBillet(new Billet(reservation5, null, new TarifAdulte()));
+        reservation6.ajouterBillet(new Billet(reservation6, null, new TarifAdulte()));
+        reservation7.ajouterBillet(new Billet(reservation7, null, new TarifAdulte()));
+        reservation8.ajouterBillet(new Billet(reservation8, null, new TarifAdulte()));
+
         Donnees.ajouterGenre(genreTheatre);
         Donnees.ajouterGenre(genreMarionnette);
         Donnees.ajouterGenre(genreCirque);
@@ -137,5 +173,14 @@ public class Donnees {
         Donnees.ajouterRepresentation(representation3_2);
         Donnees.ajouterRepresentation(representation3_3);
         Donnees.ajouterRepresentation(representation3_4);
+
+        Donnees.ajouterReservation(reservation1);
+        Donnees.ajouterReservation(reservation2);
+        Donnees.ajouterReservation(reservation3);
+        Donnees.ajouterReservation(reservation4);
+        Donnees.ajouterReservation(reservation5);
+        Donnees.ajouterReservation(reservation6);
+        Donnees.ajouterReservation(reservation7);
+        Donnees.ajouterReservation(reservation8);
     }
 }

@@ -25,24 +25,23 @@ public class Reservation {
     private Client client;
     private Annulation annulation;
 
+    private static int nbReservations = 0;
+
     /**
      * Construit une réservation.
      * 
-     * @param numero         Le numéro de la reservation.
      * @param date           Date à laquelle la réservation a été effectuée.
      * @param dateEnvoiConf  Date d'envoie de la confirmation.
      * @param representation La représentation concernée par la réservation.
-     * @param premierBillet  Le premier billet à ajouter à l'ensemble des billets.
      * @param client         Le client qui a réservé les billets.
      */
-    public Reservation(String numero, Calendar date, Calendar dateEnvoiConf, Representation representation,
-            Billet premierBillet, Client client) {
-        this.setNumero(numero);
+    public Reservation(Calendar date, Calendar dateEnvoiConf, Representation representation,
+            Client client) {
+        this.setNumero(String.valueOf(nbReservations++));
         this.setDate(date);
         this.setDateEnvoiConf(dateEnvoiConf);
         this.setRepresentation(representation);
         this.billets = new HashSet<Billet>();
-        this.ajouterBillet(premierBillet);
         this.setClient(client);
         this.annulation = null;
     }

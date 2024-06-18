@@ -19,16 +19,17 @@ public class Billet {
     private Fauteuil fauteuil;
     private Tarification tarification;
 
+    private static int nbBillets = 0;
+
     /**
      * Construit un billet avec les caractéristiques spécifiées.
      * 
-     * @param numero       Le numéro du billet.
      * @param reservation  La réservation associé au billet.
      * @param fauteuil     Le fauteuil réservé.
      * @param tarification La tarification du billet.
      */
-    public Billet(String numero, Reservation reservation, Fauteuil fauteuil, Tarification tarification) {
-        this.setNumero(numero);
+    public Billet(Reservation reservation, Fauteuil fauteuil, Tarification tarification) {
+        this.setNumero(String.valueOf(Billet.nbBillets++));
         this.setReservation(reservation);
         this.setFauteuil(fauteuil);
         this.setTarification(tarification);
