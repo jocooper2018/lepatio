@@ -132,6 +132,10 @@ public class Donnees {
         Client client2 = new Client("kantunz", "Jojo", "L'adresse de Jojo", "0707070707", "adresse@email.fr");
         Client client3 = new Client("ninlusy", "Tata", "L'adresse de Tata", "0202020202", "adresse@email.org");
 
+        Fauteuil fauteuil1 = new Fauteuil("1", "1", null);
+        Fauteuil fauteuil2 = new Fauteuil("1", "2", null);
+        Fauteuil fauteuil3 = new Fauteuil("1", "3", null);
+
         Reservation reservation1 = new Reservation(new GregorianCalendar(), null, representation1_1, client1);
         Reservation reservation2 = new Reservation(new GregorianCalendar(), null, representation2_1, client1);
         Reservation reservation3 = new Reservation(new GregorianCalendar(), null, representation3_1, client1);
@@ -141,14 +145,14 @@ public class Donnees {
         Reservation reservation7 = new Reservation(new GregorianCalendar(), null, representation1_1, client3);
         Reservation reservation8 = new Reservation(new GregorianCalendar(), null, representation2_1, client3);
 
-        reservation1.ajouterBillet(new Billet(reservation1, null, new TarifAdulte()));
-        reservation2.ajouterBillet(new Billet(reservation2, null, new TarifAdulte()));
-        reservation3.ajouterBillet(new Billet(reservation3, null, new TarifAdulte()));
-        reservation4.ajouterBillet(new Billet(reservation4, null, new TarifAdulte()));
-        reservation5.ajouterBillet(new Billet(reservation5, null, new TarifAdulte()));
-        reservation6.ajouterBillet(new Billet(reservation6, null, new TarifAdulte()));
-        reservation7.ajouterBillet(new Billet(reservation7, null, new TarifAdulte()));
-        reservation8.ajouterBillet(new Billet(reservation8, null, new TarifAdulte()));
+        reservation1.ajouterBillet(new Billet(reservation1, fauteuil1, new TarifAdulte()));
+        reservation2.ajouterBillet(new Billet(reservation2, fauteuil1, new TarifAdulte()));
+        reservation3.ajouterBillet(new Billet(reservation3, fauteuil1, new TarifAdulte()));
+        reservation4.ajouterBillet(new Billet(reservation4, fauteuil2, new TarifAdulte()));
+        reservation5.ajouterBillet(new Billet(reservation5, fauteuil2, new TarifAdulte()));
+        reservation6.ajouterBillet(new Billet(reservation6, fauteuil2, new TarifAdulte()));
+        reservation7.ajouterBillet(new Billet(reservation7, fauteuil3, new TarifAdulte()));
+        reservation8.ajouterBillet(new Billet(reservation8, fauteuil3, new TarifAdulte()));
 
         Donnees.ajouterGenre(genreTheatre);
         Donnees.ajouterGenre(genreMarionnette);
