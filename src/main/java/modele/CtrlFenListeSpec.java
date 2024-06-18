@@ -24,6 +24,9 @@ public class CtrlFenListeSpec {
     private Button bnFermer;
 
     @FXML
+    private Button bnStat;
+
+    @FXML
     private Button bnSelectionner;
 
     @FXML
@@ -61,6 +64,11 @@ public class CtrlFenListeSpec {
     @FXML
     void creerGenre(ActionEvent event) {
         Main.ouvrirCreerGenre();
+    }
+
+    @FXML
+    void afficherStat(ActionEvent event) {
+        Main.ouvrirStat();
     }
 
     public void initialize() {

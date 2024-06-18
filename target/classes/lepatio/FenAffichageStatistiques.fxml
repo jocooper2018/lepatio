@@ -12,22 +12,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modele.CtrlFenStatistique">
    <children>
       <VBox prefHeight="400.0" prefWidth="520.0">
          <children>
-            <TableView prefHeight="277.0" prefWidth="422.0">
+            <TableView fx:id="tableau" prefHeight="277.0" prefWidth="422.0">
               <columns>
-                <TableColumn prefWidth="168.0" text="C1" />
-                <TableColumn minWidth="0.0" prefWidth="164.0" text="C2" />
-                  <TableColumn prefWidth="84.0" text="C2" />
-                  <TableColumn prefWidth="101.0" text="C2" />
+                <TableColumn fx:id="tableColonne1" prefWidth="168.0" text="C1" />
+                <TableColumn fx:id="tableColonne2" minWidth="0.0" prefWidth="164.0" text="C2" />
+                  <TableColumn fx:id="tableColonne3" prefWidth="84.0" text="C2" />
+                  <TableColumn fx:id="tableColonne4" prefWidth="101.0" text="C2" />
               </columns>
             </TableView>
             <HBox prefHeight="34.0" prefWidth="518.0" spacing="10.0" style="-fx-alignment: center-right;">
                <children>
                   <Label text="CA de la saison : " />
-                  <TextField style="-fx-alignment: RIGHT;">
+                  <TextField fx:id="txtCASaison" style="-fx-alignment: RIGHT;">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -40,7 +40,7 @@
             <HBox prefHeight="12.0" prefWidth="518.0" spacing="10.0" style="-fx-alignment: center-right;">
                <children>
                   <Label text="Nombre de billet vendus :" />
-                  <TextField />
+                  <TextField fx:id="txtNbVendu" />
                </children>
                <padding>
                   <Insets bottom="10.0" top="10.0" />
@@ -53,7 +53,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                <children>
                   <Label text="CA par : " />
-                  <ChoiceBox prefWidth="150.0" />
+                  <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -73,8 +73,8 @@
                         </Label>
                         <VBox spacing="10.0" style="-fx-alignment: center;">
                            <children>
-                              <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="166.0" style="-fx-alignment: left;" text="Nom de spectacle" />
-                              <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="168.0" style="-fx-alignment: left;" text="Nom d'artiste" />
+                              <RadioButton fx:id="rdButtonNomSpec" mnemonicParsing="false" prefHeight="18.0" prefWidth="166.0" style="-fx-alignment: left;" text="Nom de spectacle" />
+                              <RadioButton fx:id="rdButtonNomArt" mnemonicParsing="false" prefHeight="18.0" prefWidth="168.0" style="-fx-alignment: left;" text="Nom d'artiste" />
                            </children>
                         </VBox>
                      </children>
@@ -83,7 +83,7 @@
             </VBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="163.0" prefWidth="294.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #5d91ff;" text="Retour" textFill="WHITE">
+                  <Button fx:id="bnRetour" mnemonicParsing="false" onAction="#fermerFenetre" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #5d91ff;" text="Retour" textFill="WHITE">
                      <font>
                         <Font name="M PLUS 2 Black" size="13.0" />
                      </font>

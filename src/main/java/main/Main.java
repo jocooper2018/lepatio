@@ -20,8 +20,8 @@ public class Main extends Application {
         Main.fStat = new FenAffichageStatistique();
 
         Main.fCreer.initModality(Modality.APPLICATION_MODAL);
+        Main.fStat.initModality(Modality.APPLICATION_MODAL);
         Main.fListe.show();
-        Main.fStat.show();
     }
 
     // Gestion des fenêtres
@@ -34,6 +34,13 @@ public class Main extends Application {
         Main.fCreer.close();
     }
 
+    public static void ouvrirStat(){
+        Main.fStat.show();
+    }
+
+    public static void fermerStat(){
+        Main.fStat.close();
+    }
     public static void ouvrirCreerGenre() {
         Main.fCreer.clear();
         Main.fCreer.show();

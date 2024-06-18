@@ -8,8 +8,6 @@ import javafx.fxml.FXMLLoader;
 
 
 public class FenAffichageStatistique extends Stage {
-
-	private CtrlFenCreerGenre ctrl;
 	
 	public FenAffichageStatistique() throws IOException {
 		this.setTitle("Affichage des statistiques");
@@ -22,12 +20,8 @@ public class FenAffichageStatistique extends Stage {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/lepatio/FenAffichageStatistiques.fxml"));
         Pane root = loader.load();
-        ctrl = loader.getController();
         return root;
 	}
 
-	public void clear() {
-		ctrl.clear();
-	}
 }
 
