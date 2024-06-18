@@ -51,7 +51,7 @@
             </ListView>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="bnSelectionner" disable="true" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #5d91ff;" text="Sélectionner" textFill="WHITE">
+                  <Button fx:id="bnSelectionner" mnemonicParsing="false" onAction="#selectionnerGenre" prefWidth="150.0" style="-fx-background-color: #5d91ff;" text="Sélectionner" textFill="WHITE">
                      <font>
                         <Font name="M PLUS 2 Black" size="13.0" />
                      </font>
