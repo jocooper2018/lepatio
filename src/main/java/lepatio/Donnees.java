@@ -16,6 +16,7 @@ public class Donnees {
 
     private static ObservableList<Genre> listeGenre = FXCollections.observableArrayList();
     private static ObservableList<Spectacle> listeSpectacle = FXCollections.observableArrayList();
+    private static ObservableList<Representation> listeRepresentations = FXCollections.observableArrayList();
 
     /**
      * @return La liste de tous les genres créés.
@@ -54,6 +55,18 @@ public class Donnees {
         return Donnees.getListeSpectacle().remove(spectacle);
     }
 
+    public static ObservableList<Representation> getListeRepresentations() {
+        return Donnees.listeRepresentations;
+    }
+
+    public static boolean ajouterRepresentation(Representation representation) {
+        return Donnees.getListeRepresentations().add(representation);
+    }
+
+    public static boolean supprimerRepresentation(Representation representation) {
+        return Donnees.getListeRepresentations().remove(representation);
+    }
+
     public static void chargerDonnees() {
 
         Genre genreTheatre = new Genre("Théâtre");
@@ -88,6 +101,19 @@ public class Donnees {
         spectacle3.ajouterArtiste(artisteElendur);
         spectacle3.ajouterArtiste(artisteFulbert);
 
+        Representation representation1_1 = new Representation("20/06/2024", "15h15", spectacle1);
+        Representation representation1_2 = new Representation("27/06/2024", "15h15", spectacle1);
+        Representation representation1_3 = new Representation("01/07/2024", "20h20", spectacle1);
+
+        Representation representation2_1 = new Representation("04/07/2024", "15h15", spectacle2);
+        Representation representation2_2 = new Representation("11/07/2024", "15h15", spectacle2);
+        Representation representation2_3 = new Representation("15/07/2024", "20h20", spectacle2);
+
+        Representation representation3_1 = new Representation("08/07/2024", "20h20", spectacle3);
+        Representation representation3_2 = new Representation("18/07/2024", "15h15", spectacle3);
+        Representation representation3_3 = new Representation("24/07/2024", "20h20", spectacle3);
+        Representation representation3_4 = new Representation("27/07/2024", "15h15", spectacle3);
+
         Donnees.ajouterGenre(genreTheatre);
         Donnees.ajouterGenre(genreMarionnette);
         Donnees.ajouterGenre(genreCirque);
@@ -98,5 +124,18 @@ public class Donnees {
         Donnees.ajouterSpectacle(spectacle1);
         Donnees.ajouterSpectacle(spectacle2);
         Donnees.ajouterSpectacle(spectacle3);
+
+        Donnees.ajouterRepresentation(representation1_1);
+        Donnees.ajouterRepresentation(representation1_2);
+        Donnees.ajouterRepresentation(representation1_3);
+
+        Donnees.ajouterRepresentation(representation2_1);
+        Donnees.ajouterRepresentation(representation2_2);
+        Donnees.ajouterRepresentation(representation2_3);
+
+        Donnees.ajouterRepresentation(representation3_1);
+        Donnees.ajouterRepresentation(representation3_2);
+        Donnees.ajouterRepresentation(representation3_3);
+        Donnees.ajouterRepresentation(representation3_4);
     }
 }
