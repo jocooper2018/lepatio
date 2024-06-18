@@ -21,10 +21,9 @@ public class Zone {
      * @param nom              Le nom de la zone.
      * @param premierSpectacle Premier spectacle associé avec la zone.
      */
-    public Zone(String nom, Spectacle premierSpectacle) {
+    public Zone(String nom) {
         this.nom = nom;
         this.spectacles = new HashSet<Spectacle>();
-        this.spectacles.add(premierSpectacle);
     }
 
     /**

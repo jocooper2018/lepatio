@@ -90,6 +90,12 @@ public class Donnees {
         Genre genreOpera = new Genre("Opera");
         Genre genreDanse = new Genre("Danse");
 
+        Zone zoneScene = new Zone("Scène");
+        Zone zoneOrchestre = new Zone("Orchestre");
+        Zone zoneBalcon = new Zone("Balcon");
+        Zone zoneLogesDroites = new Zone("Loges Droites");
+        Zone zoneLogesGauches = new Zone("Loges Gauches");
+
         Artiste artisteAlbert = new Artiste("Albert Jcanrpunhoufr");
         Artiste artisteJorgul = new Artiste("Jorgul");
         Artiste artisteEldwin = new Artiste("Eldwin Shelby");
@@ -101,11 +107,19 @@ public class Donnees {
         spectacle1.ajouterArtiste(artisteAlbert);
         spectacle1.ajouterArtiste(artisteEldwin);
         spectacle1.ajouterArtiste(artisteJorgul);
+        spectacle1.ajouterZone(zoneScene, 3000L);
+        spectacle1.ajouterZone(zoneOrchestre, 1000L);
+        spectacle1.ajouterZone(zoneBalcon, 2000L);
+        spectacle1.ajouterZone(zoneLogesDroites, 1500L);
+        spectacle1.ajouterZone(zoneLogesGauches, 1500L);
 
         Spectacle spectacle2 = new Spectacle("Les guadeloupédeux", 170, 239, genreDanse);
         spectacle2.ajouterArtiste(artisteTiti);
         spectacle2.ajouterArtiste(artisteElendur);
         spectacle2.ajouterArtiste(artisteFulbert);
+        spectacle2.ajouterZone(zoneOrchestre, 1000L);
+        spectacle2.ajouterZone(zoneBalcon, 2000L);
+        spectacle2.ajouterZone(zoneLogesDroites, 1500L);
 
         Spectacle spectacle3 = new Spectacle("Les guadeloupétrois", 169, 345, genreCirque);
         spectacle3.ajouterArtiste(artisteAlbert);
@@ -114,6 +128,10 @@ public class Donnees {
         spectacle3.ajouterArtiste(artisteTiti);
         spectacle3.ajouterArtiste(artisteElendur);
         spectacle3.ajouterArtiste(artisteFulbert);
+        spectacle3.ajouterZone(zoneOrchestre, 1000L);
+        spectacle3.ajouterZone(zoneBalcon, 2000L);
+        spectacle3.ajouterZone(zoneLogesDroites, 1500L);
+        spectacle3.ajouterZone(zoneLogesGauches, 1500L);
 
         Representation representation1_1 = new Representation("20/06/2024", "15h15", spectacle1);
         Representation representation1_2 = new Representation("27/06/2024", "15h15", spectacle1);
@@ -132,9 +150,9 @@ public class Donnees {
         Client client2 = new Client("kantunz", "Jojo", "L'adresse de Jojo", "0707070707", "adresse@email.fr");
         Client client3 = new Client("ninlusy", "Tata", "L'adresse de Tata", "0202020202", "adresse@email.org");
 
-        Fauteuil fauteuil1 = new Fauteuil("1", "1", null);
-        Fauteuil fauteuil2 = new Fauteuil("1", "2", null);
-        Fauteuil fauteuil3 = new Fauteuil("1", "3", null);
+        Fauteuil fauteuil1 = new Fauteuil("1", "1", zoneOrchestre);
+        Fauteuil fauteuil2 = new Fauteuil("1", "2", zoneLogesDroites);
+        Fauteuil fauteuil3 = new Fauteuil("1", "3", zoneBalcon);
 
         Reservation reservation1 = new Reservation(new GregorianCalendar(), null, representation1_1, client1);
         Reservation reservation2 = new Reservation(new GregorianCalendar(), null, representation2_1, client1);
