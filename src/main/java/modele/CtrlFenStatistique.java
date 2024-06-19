@@ -44,6 +44,9 @@ public class CtrlFenStatistique {
     private ObservableList<Spectacle> spectacles;
 
     public void initialize() {
+        
+        Donnees.chargerDonnees();
+
         spectacles = FXCollections.observableArrayList(Donnees.getListeSpectacle());
 
         // Configuration de la ChoiceBox
