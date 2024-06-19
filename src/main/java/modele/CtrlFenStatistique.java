@@ -51,6 +51,18 @@ public class CtrlFenStatistique {
 
         spectacles = FXCollections.observableArrayList(Donnees.getListeSpectacle());
 
+        long caTotal = 0L;
+        int nbBillets = 0;
+        for (Reservation reservation : Donnees.getListeReservations()) {
+            for (Billet billet : reservation.getBillets()) {
+                caTotal += Spectacle.getTarif(billet.getReservation().getRepresentation().getSpectacle(), billet.getFauteuil().getZone()).calculerMontant(billet);
+                nbBillets++;
+            }
+        }
+
+        txtCASaison.setText(String.valueOf((double)caTotal / 100.0));
+        txtNbVendu.setText(String.valueOf(nbBillets));
+
         // Configuration de la ChoiceBox
         choiceBox.getItems().addAll("Spectacle", "Représentation", "Artiste");
         choiceBox.setValue("Spectacle"); // Valeur par défaut
