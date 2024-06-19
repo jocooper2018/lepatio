@@ -127,7 +127,6 @@ public class Donnees {
         Spectacle spectacle1 = new Spectacle("Les guadeloupéens", 161, 504, genreOpera);
         spectacle1.ajouterArtiste(artisteAlbert);
         spectacle1.ajouterArtiste(artisteEldwin);
-        spectacle1.ajouterArtiste(artisteJorgul);
         spectacle1.ajouterZone(zoneScene, 2500L);
         spectacle1.ajouterZone(zoneOrchestre, 1000L);
         spectacle1.ajouterZone(zoneBalcon, 2000L);
