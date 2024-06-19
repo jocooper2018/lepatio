@@ -102,7 +102,7 @@ public class CtrlFenStatistique {
                     }
                 }
             }
-            row.put("ca_total", String.valueOf(caTotal));
+            row.put("ca_total", String.valueOf(caTotal / 100.0));
             row.put("nb_representations", String.valueOf(spectacle.getRepresentations().size()));
             data.add(row);
         }
@@ -140,7 +140,7 @@ public class CtrlFenStatistique {
                         }
                     }
                 }
-                row.put("ca", String.valueOf(caTotal));
+                row.put("ca", String.valueOf(caTotal / 100.0));
                 data.add(row);
             }
         }
@@ -160,32 +160,33 @@ public class CtrlFenStatistique {
         tableau.getColumns().addAll(colNomArtiste, colCATotal, colNbRepresentations);
 
         // Calculer le chiffre d'affaires total et le nombre de représentations pour chaque artiste
-        Map<Artiste, Double> chiffreAffaireParArtiste = new HashMap<>();
+        Map<Artiste, Long> chiffreAffaireParArtiste = new HashMap<>();
         Map<Artiste, Integer> nbRepresentationsParArtiste = new HashMap<>();
 
-        for (Spectacle spectacle : spectacles) {
-            for (Artiste artiste : spectacle.getArtistes()) {
-                nbRepresentationsParArtiste.put(artiste, nbRepresentationsParArtiste.getOrDefault(artiste, 0) + spectacle.getRepresentations().size());
+        
+        // Remplir les données dans le TableView
+        ObservableList<Map<String, String>> data = FXCollections.observableArrayList();
+        for (Artiste artiste : Donnees.getListeArtiste()) {
+
+            long chiffreAffaire = 0L;
+            int nbRepresentations = 0;
+            for (Spectacle spectacle : artiste.getSpectacles()) {
                 for (Representation representation : spectacle.getRepresentations()) {
+                    nbRepresentations++;
                     for (Reservation reservation : representation.getReservations()) {
                         for (Billet billet : reservation.getBillets()) {
-                            Tarif tarif = Spectacle.getTarif(spectacle, billet.getFauteuil().getZone());
-                            if (tarif != null) {
-                                double caTotal = tarif.calculerMontant(billet) / spectacle.getArtistes().size();
-                                chiffreAffaireParArtiste.put(artiste, chiffreAffaireParArtiste.getOrDefault(artiste, 0.0) + caTotal);
-                            }
+                            chiffreAffaire += Spectacle.getTarif(spectacle, billet.getFauteuil().getZone()).getPleinTarif();
                         }
                     }
                 }
             }
-        }
 
-        // Remplir les données dans le TableView
-        ObservableList<Map<String, String>> data = FXCollections.observableArrayList();
-        for (Artiste artiste : Donnees.getListeArtiste()) {
+            chiffreAffaireParArtiste.put(artiste, Long.valueOf(chiffreAffaire));
+            nbRepresentationsParArtiste.put(artiste, Integer.valueOf(nbRepresentations));
+
             Map<String, String> row = new HashMap<>();
             row.put("nom", artiste.getNom());
-            row.put("ca_total", String.valueOf(chiffreAffaireParArtiste.getOrDefault(artiste, 0.0)));
+            row.put("ca_total", String.valueOf((double)chiffreAffaireParArtiste.getOrDefault(artiste, 0L) / 100.0));
             row.put("nb_representations", String.valueOf(nbRepresentationsParArtiste.getOrDefault(artiste, 0)));
             data.add(row);
         }

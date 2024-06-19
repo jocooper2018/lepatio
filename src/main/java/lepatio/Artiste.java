@@ -45,7 +45,7 @@ public class Artiste {
      * 
      * @return L'ensemble des spectacles interprété par l'artiste.
      */
-    protected Set<Spectacle> getSpectacles() {
+    public Set<Spectacle> getSpectacles() {
         return spectacles;
     }
 
