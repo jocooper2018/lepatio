@@ -45,6 +45,8 @@ public class CtrlFenStatistique {
 
     public void initialize() {
         
+        txtCASaison.setEditable(false);
+        txtNbVendu.setEditable(false);
         Donnees.chargerDonnees();
 
         spectacles = FXCollections.observableArrayList(Donnees.getListeSpectacle());
